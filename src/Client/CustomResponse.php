@@ -2,6 +2,7 @@
 
 namespace Vandar\Cashier\Client;
 
+use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use Vandar\Cashier\Concerns\ResponseJsonConcern;
@@ -43,57 +44,57 @@ class CustomResponse implements ResponseInterface
     }
 
 
-    public function getProtocolVersion()
+    public function getProtocolVersion() :string
     {
         return $this->response->getProtocolVersion();
     }
 
-    public function withProtocolVersion($version)
+    public function withProtocolVersion($version): MessageInterface
     {
         return $this->response->withProtocolVersion($version);
     }
 
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->response->getHeaders();
     }
 
-    public function hasHeader($name)
+    public function hasHeader($name):bool
     {
         return $this->response->hasHeader($name);
     }
 
-    public function getHeader($name)
+    public function getHeader($name):array
     {
         return $this->response->getHeader($name);
     }
 
-    public function getHeaderLine($name)
+    public function getHeaderLine($name):string
     {
         return $this->response->getHeaderLine($name);
     }
 
-    public function withHeader($name, $value)
+    public function withHeader($name, $value): MessageInterface
     {
         return $this->response->withHeader($name, $value);
     }
 
-    public function withAddedHeader($name, $value)
+    public function withAddedHeader($name, $value): MessageInterface
     {
         return $this->response->withAddedHeader($name, $value);
     }
 
-    public function withoutHeader($name)
+    public function withoutHeader($name): MessageInterface
     {
         return $this->response->withoutHeader($name);
     }
 
-    public function getBody()
+    public function getBody():StreamInterface
     {
         return $this->response->getBody();
     }
 
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamInterface $body):MessageInterface
     {
         return $this->response->withBody($body);
     }
